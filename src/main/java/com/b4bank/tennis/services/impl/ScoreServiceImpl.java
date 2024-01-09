@@ -4,7 +4,6 @@ import com.b4bank.tennis.models.Player;
 import com.b4bank.tennis.models.Score;
 import com.b4bank.tennis.services.ScoreService;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
