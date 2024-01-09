@@ -37,9 +37,9 @@ public class ScoreServiceImpl implements ScoreService {
         return players;
     }
 
-    public String getWinner() {
-        Score playerOneScore = playerOne.getScore();
-        Score playerTwoScore = playerTwo.getScore();
+    public String getWinner(List<Player> players) {
+        Score playerOneScore = players.get(0).getScore();
+        Score playerTwoScore = players.get(1).getScore();
 
         if (playerOneScore == Score.GAME) {
             return PLAYER_ONE_WIN;

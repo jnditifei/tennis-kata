@@ -7,5 +7,5 @@ import java.util.List;
 public interface ScoreService {
 
     public List<Player> updatePlayerScore(String game);
-    String getWinner();
+    String getWinner(List<Player> players);
 }

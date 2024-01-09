@@ -12,16 +12,14 @@ public class TennisGame {
         this.scoreService = new ScoreServiceImpl();
     }
 
-
     public void simulateGame(String game) {
         try {
-            scoreService.updatePlayerScore(game);
-            System.out.println(scoreService.getWinner());
+            var players = scoreService.updatePlayerScore(game);
+            System.out.println(scoreService.getWinner(players));
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
     }
-
 
     public static void main(String[] args) {
         TennisGame game = new TennisGame();

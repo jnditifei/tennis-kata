@@ -1,6 +1,5 @@
 package com.b4bank.tennis.services.impl;
 
-import com.b4bank.tennis.models.Player;
 import com.b4bank.tennis.models.Score;
 import com.b4bank.tennis.services.ScoreService;
 import junit.framework.TestCase;
@@ -20,32 +19,32 @@ public class ScoreServiceImplTest extends TestCase {
 
     @Test
     public void testPlayerOneWins() {
-        scoreService.updatePlayerScore("AAAA");
-        assertEquals("Player One Wins", scoreService.getWinner());
+        var players = scoreService.updatePlayerScore("AAAA");
+        assertEquals("Player One Wins", scoreService.getWinner(players));
     }
 
     @Test
     public void testPlayerTwoWins() {
-        scoreService.updatePlayerScore("BBBB");
-        assertEquals("Player Two Wins", scoreService.getWinner());
+        var players = scoreService.updatePlayerScore("BBBB");
+        assertEquals("Player Two Wins", scoreService.getWinner(players));
     }
 
     @Test
     public void testPlayerOneAdvantage() {
-        scoreService.updatePlayerScore("BAABBAA");
-        assertEquals("Player One Advantage", scoreService.getWinner());
+        var players = scoreService.updatePlayerScore("BAABBAA");
+        assertEquals("Player One Advantage", scoreService.getWinner(players));
     }
 
     @Test
     public void testPlayerTwoAdvantage() {
-        scoreService.updatePlayerScore("ABABABB");
-        assertEquals("Player Two Advantage", scoreService.getWinner());
+        var players = scoreService.updatePlayerScore("ABABABB");
+        assertEquals("Player Two Advantage", scoreService.getWinner(players));
     }
 
     @Test
     public void testNoWinnerYet() {
-        scoreService.updatePlayerScore("ABABAB");
-        assertEquals("No winner yet", scoreService.getWinner());
+        var players = scoreService.updatePlayerScore("ABABAB");
+        assertEquals("No winner yet", scoreService.getWinner(players));
     }
 
     @Test
