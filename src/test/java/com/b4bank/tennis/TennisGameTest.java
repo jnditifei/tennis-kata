@@ -22,8 +22,8 @@ public class TennisGameTest {
 
     @Test
     public void testSimulateGameWithValidInput() {
-        String validGame = "ABABAA";
-        List<Player> players = Arrays.asList(new Player(Score.GAME), new Player(Score.THIRTY));
+        var validGame = "ABABAA";
+        var players = Arrays.asList(new Player(Score.GAME), new Player(Score.THIRTY));
 
         ScoreService scoreServiceMock = mock(ScoreService.class);
         TennisGame game = new TennisGame(scoreServiceMock);
@@ -39,7 +39,7 @@ public class TennisGameTest {
 
     @Test
     public void testSimulateGameWithInvalidInput() {
-        String invalidGame = "ABABXAB";
+        var invalidGame = "ABABXAB";
 
         ScoreService scoreServiceMock = mock(ScoreService.class);
         TennisGame game = new TennisGame(scoreServiceMock);

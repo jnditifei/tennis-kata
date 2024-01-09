@@ -33,13 +33,12 @@ public class ScoreServiceImpl implements ScoreService {
             }
             System.out.println("Player A: " + playerOne.getScore().getScoreValue() + " - Player B: " + playerTwo.getScore().getScoreValue());
         }
-        List<Player> players = Arrays.asList(playerOne, playerTwo);
-        return players;
+        return Arrays.asList(playerOne, playerTwo);
     }
 
     public String getWinner(List<Player> players) {
-        Score playerOneScore = players.get(0).getScore();
-        Score playerTwoScore = players.get(1).getScore();
+        var playerOneScore = players.get(0).getScore();
+        var playerTwoScore = players.get(1).getScore();
 
         if (playerOneScore == Score.GAME) {
             return PLAYER_ONE_WIN;
@@ -55,8 +54,8 @@ public class ScoreServiceImpl implements ScoreService {
     }
 
     private void calculateScore(Player scorer, Player opponent) {
-        Score scorerScore = scorer.getScore();
-        Score opponentScore = opponent.getScore();
+        var scorerScore = scorer.getScore();
+        var opponentScore = opponent.getScore();
 
         if (scorerScore == Score.ADVANTAGE) {
             scorer.setScore(Score.GAME);
