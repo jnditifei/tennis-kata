@@ -23,22 +23,23 @@ public class TennisGameTest {
     @Test
     public void testSimulateGameWithValidInput() {
         String validGame = "ABABAA";
+        List<Player> players = Arrays.asList(new Player(Score.GAME), new Player(Score.THIRTY));
 
         ScoreService scoreServiceMock = mock(ScoreService.class);
         TennisGame game = new TennisGame(scoreServiceMock);
 
-        when(scoreServiceMock.getWinner(any())).thenReturn("Player One Wins");
+        when(scoreServiceMock.updatePlayerScore(validGame)).thenReturn(players);
+        when(scoreServiceMock.getWinner(players)).thenReturn("Player One Wins");
 
         game.simulateGame(validGame);
 
         verify(scoreServiceMock).updatePlayerScore(validGame);
-        verify(scoreServiceMock).getWinner(any());
+        verify(scoreServiceMock).getWinner(players);
     }
 
     @Test
     public void testSimulateGameWithInvalidInput() {
         String invalidGame = "ABABXAB";
-        List<Player> players = Arrays.asList(new Player(), new Player());
 
         ScoreService scoreServiceMock = mock(ScoreService.class);
         TennisGame game = new TennisGame(scoreServiceMock);
@@ -48,7 +49,7 @@ public class TennisGameTest {
         game.simulateGame(invalidGame);
 
         verify(scoreServiceMock).updatePlayerScore(invalidGame);
-        verify(scoreServiceMock, never()).getWinner(players);
+        verify(scoreServiceMock, never()).getWinner(anyList());
     }
 }
 
